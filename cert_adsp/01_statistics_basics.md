@@ -1,62 +1,52 @@
 # 📊 ADSP 통계 기초 정리
 
-## 1. 평균 (Mean)
-- **산술평균**: 모든 데이터를 더한 후 데이터 수로 나눈 값
-- **가중평균**: 각 데이터에 가중치를 곱한 후 가중치의 총합으로 나눈 값
-- **기하평균**: 양의 수 n개의 곱의 n제곱근
-- **조화평균**: 역수의 평균의 역수
+---
 
-## 2. 중앙값 (Median)
-- 데이터를 오름차순으로 정렬했을 때 중간 위치 값
-- 데이터 개수가 짝수면 가운데 두 수의 평균
+## 1. 중심 경향성 (Measures of Central Tendency)
 
-## 3. 최빈값 (Mode)
-- 가장 자주 나타나는 값
-- 데이터에 하나 이상 존재 가능
-- 연속형 변수는 구간으로 나타낼 수도 있음
+- 평균 (Mean):  
+  $ \bar{x} = \frac{1}{n} \sum x_i $
 
-## 4. 사분위수 (Quartiles)
-- Q1 (제1사분위수): 하위 25%
-- Q2 (제2사분위수 = 중앙값)
-- Q3 (제3사분위수): 상위 25%
-- **사분위 범위 (IQR)** = Q3 - Q1 → 이상치 판별 기준
+- 중앙값 (Median)
 
-## 5. 분산 (Variance)
-- \( \sigma^2 = \frac{1}{n} \sum (x_i - \mu)^2 \)
-- **표본분산**은 자유도 보정 필요: \( \frac{1}{n-1} \sum (x_i - \bar{x})^2 \)
+- 최빈값 (Mode)
 
-## 6. 표준편차 (Standard Deviation)
-- 분산의 제곱근
-- 단위가 원래 데이터와 동일함
+---
 
-## 7. 변동계수 (Coefficient of Variation, CV)
-- \( \frac{\text{표준편차}}{\text{평균}} \)
-- 단위가 다를 때 상대적 비교를 위해 사용
+## 2. 산포도 (Measures of Dispersion)
 
-## 8. 왜도 (Skewness)
-- 분포의 비대칭성
-- **양(+)의 왜도**: 오른쪽 꼬리, **음(-)의 왜도**: 왼쪽 꼬리
-- 정규분포는 왜도 = 0
+- 분산 (Variance):  
+  $ \sigma^2 = \frac{1}{n} \sum (x_i - \mu)^2 $
 
-## 9. 첨도 (Kurtosis)
-- 분포의 뾰족함
-- **첨도 > 3**: 뾰족한 분포 (Leptokurtic)
-- **첨도 < 3**: 평평한 분포 (Platykurtic)
-- 정규분포는 첨도 = 3
+- 표본분산 (Sample Variance, 자유도 보정):  
+  $ s^2 = \frac{1}{n-1} \sum (x_i - \bar{x})^2 $
 
-## 10. 정규분포 (Normal Distribution)
-- 종형(Bell shape), 평균 기준으로 대칭
-- 평균, 중앙값, 최빈값이 모두 같다
-- 전체의 약 68.3%는 ±1σ 이내, 95.4%는 ±2σ 이내, 99.7%는 ±3σ 이내
-- 확률밀도함수(PDF) 공식:
-  \[
-  f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{- \frac{(x - \mu)^2}{2\sigma^2}}
-  \]
+- 표준편차 (Standard Deviation):  
+  $ \sigma = \sqrt{\sigma^2} $
 
-## 11. 정규성 검정
-- 데이터가 정규분포를 따르는지 검정
-- 대표적 방법: Kolmogorov–Smirnov test, Shapiro–Wilk test
+- 범위 (Range), 사분위수 (Interquartile Range, IQR)
 
-## 12. 이상치 판별
-- 1. **IQR 기준**: Q1 - 1.5×IQR 보다 작거나, Q3 + 1.5×IQR보다 큰 값
-- 2. **Z-score 기준**: |Z| > 3
+---
+
+## 3. 분포의 모양
+
+- 왜도 (Skewness): 분포의 비대칭 정도
+- 첨도 (Kurtosis): 분포의 꼬리 두꺼움 정도
+
+---
+
+## 4. 확률분포
+
+- 이산 확률분포: 이항분포(Binomial), 포아송분포(Poisson)
+- 연속 확률분포: 정규분포(Normal), t-분포, 카이제곱분포 등
+
+---
+
+## 5. 신뢰구간과 가설검정
+
+- 신뢰구간 (Confidence Interval):  
+  모수를 포함할 것으로 기대되는 구간
+
+- 가설검정 (Hypothesis Testing):
+  - 귀무가설 $H_0$, 대립가설 $H_1$
+  - 유의수준 $\alpha$, p-value 개념
